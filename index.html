@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <script src="./jquery.min.js"></script>
+        <script src="./jquery.qrcode.min.js"></script>
+    </head>
+    <style>
+    #qrCodeIco{
+        position: absolute;
+    }
+    </style>
+    <body>
+        <div class="margin-top-10" id="wechartauto">
+            <img id="qrCodeIco"/>
+        </div>
+    </body>
+    <script>
+        // var qrcode = new QRCode("qrcode");
+
+        // this.$http.post('/customer/ajax',{method:'getqrcode'},{emulateJSON:true}).then(function(response){
+        var wechartUlr = 'asdasd';
+        // console.log(wechartUlr)
+        $('#wechartauto').qrcode({ 
+            render: "canvas", // 渲染方式有table方式（IE兼容）和canvas方式
+                width: 155, //宽度
+                height: 155, //高度
+                text: '12312312', //内容
+                typeNumber: -1,//计算模式
+                correctLevel: 2,//二维码纠错级别
+                background: "#ffffff",//背景颜色
+                foreground: "#000000" //二维码颜色
+        });
+        //设置图片的大小
+        $("#qrCodeIco").css("width","50px") 
+        $("#qrCodeIco").css("height","50px")
+        $("#qrCodeIco").attr("src","./wechat.jpg") //图片
+        var margin = ($("#wechartauto").height() - $("#qrCodeIco").height()) / 2; //控制Logo图标的位置
+        $("#qrCodeIco").css("margin", margin);
+        // })
+    </script>
+</html>
